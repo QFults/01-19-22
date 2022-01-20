@@ -1,10 +1,10 @@
-const SongCard = () => {
+const SongCard = ({ title, artist, album }) => {
   return (
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Firenze</h5>
-          <h6>By Wun Two</h6>
-          <h6>Album: Firenze</h6>
+    <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <h6>By {artist}</h6>
+          <h6>Album: {album}</h6>
         </div>
     </div>
   )
