@@ -1,12 +1,12 @@
+import { Card, CardTitle, CardText } from 'reactstrap'
+
 const SongCard = ({ title, artist, album }) => {
   return (
-    <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <h6>By {artist}</h6>
-          <h6>Album: {album}</h6>
-        </div>
-    </div>
+    <Card body color="info">
+          <CardTitle tag="h5">{title}</CardTitle>
+          <CardText>By {artist}</CardText>
+          <CardText>Album: {album}</CardText>
+    </Card>
   )
 }
 

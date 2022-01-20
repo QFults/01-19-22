@@ -1,3 +1,5 @@
+import { Form as Frm, Label, Input, Button } from 'reactstrap'
+
 const Form = ({
   title,
   artist,
@@ -6,10 +8,10 @@ const Form = ({
   handleAddSong
 }) => {
   return (
-    <form>
+    <Frm>
       <div className="mb-3">
-        <label htmlFor="title" className="form-label">Title</label>
-        <input
+        <Label htmlFor="title">Title</Label>
+        <Input
           type="text"
           className="form-control"
           name="title"
@@ -17,8 +19,8 @@ const Form = ({
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <label htmlFor="artist" className="form-label">Artist</label>
-        <input
+        <Label htmlFor="artist">Artist</Label>
+        <Input
           type="text"
           className="form-control"
           name="artist"
@@ -26,21 +28,20 @@ const Form = ({
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <label htmlFor="album" className="form-label">Album</label>
-        <input
+        <Label htmlFor="album">Album</Label>
+        <Input
           type="text"
           className="form-control"
           name="album"
           value={album}
           onChange={handleInputChange} />
       </div>
-      <button
-        type="submit"
-        className="btn btn-primary"
+      <Button
+        color="primary"
         onClick={handleAddSong} >
         Add Song
-      </button>
-    </form>
+      </Button>
+    </Frm>
   )
 }
 

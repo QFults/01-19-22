@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Form from './components/Form'
 import SongCard from './components/SongCard'
 import SongAPI from './utils/SongAPI'
+import { Button } from 'reactstrap'
 
 const App = () => {
 
@@ -45,6 +46,7 @@ const App = () => {
         <p className="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex a inventore quis laboriosam, quae nihil. Veritatis, aut voluptatem! Minima consectetur, modi consequuntur qui neque expedita? Beatae omnis ipsa quos dolor.
         Corrupti dolor repellat non accusamus nostrum necessitatibus, dicta libero. Dolorum blanditiis incidunt similique nesciunt laudantium est maiores deleniti consequatur debitis ipsam, animi eligendi alias suscipit error, doloremque facilis! Quod, saepe?</p>
         <hr className="my-4" />
+        <Button color="danger">Click Me</Button>
       </div>
       <div className="row">
         <div className="col-md-6">
