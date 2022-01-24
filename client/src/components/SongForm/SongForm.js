@@ -1,6 +1,6 @@
-import { Form as Frm, Label, Input, Button } from 'reactstrap'
+import { Form, Label, Input, Button } from 'reactstrap'
 
-const Form = ({
+const SongForm = ({
   title,
   artist,
   album,
@@ -8,7 +8,7 @@ const Form = ({
   handleAddSong
 }) => {
   return (
-    <Frm>
+    <Form>
       <div className="mb-3">
         <Label htmlFor="title">Title</Label>
         <Input
@@ -41,8 +41,8 @@ const Form = ({
         onClick={handleAddSong} >
         Add Song
       </Button>
-    </Frm>
+    </Form>
   )
 }
 
-export default Form
+export default SongForm
