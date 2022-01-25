@@ -7,7 +7,11 @@ const SongAPI = {
     return songs
   },
   createSong: async function (data) {
-    const { data: song } = await axios.post('/api/songs', data)
+    const { data: song } = await axios.post('/api/songs', data, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    })
     return song
   }
 }

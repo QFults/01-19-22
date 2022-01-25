@@ -1,30 +1,17 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Form, Label, Input, Button } from 'reactstrap'
 import UserAPI from '../../utils/UserAPI'
+import AuthContext from '../../utils/AuthContext'
 
 const RegisterForm = () => {
-  const [registerState, setRegisterState] = useState({
-    name: '',
-    email: '',
-    username: '',
-    password: ''
-  })
-
-  const handleInputChange = ({ target: { name, value } }) => setRegisterState({ ...registerState, [name]: value })
-
-  const handleRegisterUser = event => {
-    event.preventDefault()
-    UserAPI.register({
-      name: registerState.name,
-      email: registerState.email,
-      username: registerState.username,
-      password: registerState.password
-    })
-      .then(() => {
-        alert('User Registered! Please Log In!')
-        setRegisterState({ ...registerState, name: '', email: '', username: '', password: '' })
-      })
-  } 
+  const {
+    name,
+    username,
+    email,
+    password,
+    handleInputChange,
+    handleRegisterUser
+  } = useContext(AuthContext)
 
   return (
     <Form>
@@ -34,7 +21,7 @@ const RegisterForm = () => {
           type="text"
           className="form-control"
           name="name"
-          value={registerState.name}
+          value={name}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
@@ -43,7 +30,7 @@ const RegisterForm = () => {
           type="email"
           className="form-control"
           name="email"
-          value={registerState.email}
+          value={email}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
@@ -52,7 +39,7 @@ const RegisterForm = () => {
           type="text"
           className="form-control"
           name="username"
-          value={registerState.username}
+          value={username}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
@@ -61,7 +48,7 @@ const RegisterForm = () => {
           type="password"
           className="form-control"
           name="password"
-          value={registerState.password}
+          value={password}
           onChange={handleInputChange} />
       </div>
       <Button

@@ -1,12 +1,16 @@
 import { Form, Label, Input, Button } from 'reactstrap'
+import { useContext } from 'react'
+import SongContext from '../../utils/SongContext'
 
-const SongForm = ({
-  title,
-  artist,
-  album,
-  handleInputChange,
-  handleAddSong
-}) => {
+const SongForm = () => {
+  const {
+    title,
+    artist,
+    album,
+    handleInputChange,
+    handleAddSong
+  } = useContext(SongContext)
+
   return (
     <Form>
       <div className="mb-3">

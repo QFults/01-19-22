@@ -1,27 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Form, Label, Input, Button } from 'reactstrap'
 import UserAPI from '../../utils/UserAPI'
+import AuthContext from '../../utils/AuthContext'
 
 const LoginForm = () => {
-  const [loginState, setLoginState] = useState({
-    username: '',
-    password: ''
-  })
-
-  const handleInputChange = ({ target: { name, value } }) => setLoginState({ ...loginState, [name]: value })
-
-  const handleLoginUser = event => {
-    event.preventDefault()
-    UserAPI.login({
-      username: loginState.username,
-      password: loginState.password
-    })
-      .then(token => {
-        localStorage.setItem('user', token)
-        setLoginState({ ...loginState, username: '', password: '' })
-        window.location = '/'
-      })
-  } 
+  const {
+    lUsername,
+    lPassword,
+    handleInputChange,
+    handleLoginUser
+  } = useContext(AuthContext)
 
   return (
     <Form>
@@ -30,8 +18,8 @@ const LoginForm = () => {
         <Input
           type="text"
           className="form-control"
-          name="username"
-          value={loginState.username}
+          name="lUsername"
+          value={lUsername}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
@@ -39,8 +27,8 @@ const LoginForm = () => {
         <Input
           type="password"
           className="form-control"
-          name="password"
-          value={loginState.password}
+          name="lPassword"
+          value={lPassword}
           onChange={handleInputChange} />
       </div>
       <Button
